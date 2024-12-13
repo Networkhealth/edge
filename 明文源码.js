@@ -1254,18 +1254,12 @@ async function 生成配置信息(userID, hostName, sub, UA, RproxyIP, _url, env
 		
 		if ((addresses.length + addressesapi.length + addressesnotls.length + addressesnotlsapi.length + addressescsv.length) == 0){
 			// 定义 Cloudflare IP 范围的 CIDR 列表
-			let cfips = [
-				'103.21.244.0/23',
+		let cfips = [
 				'104.16.0.0/13',
 				'104.24.0.0/14',
-				'172.64.0.0/14',
-				'103.21.244.0/23',
+				'188.114.97.3',
 				'104.16.0.0/14',
 				'104.24.0.0/15',
-				'141.101.64.0/19',
-				'172.64.0.0/14',
-				'188.114.96.0/21',
-				'190.93.240.0/21',
 			];
 	
 			// 生成符合给定 CIDR 范围的随机 IP 地址
@@ -1284,11 +1278,14 @@ async function 生成配置信息(userID, hostName, sub, UA, RproxyIP, _url, env
 	
 				return randomIP.join('.');
 			}
-			addresses = addresses.concat('127.0.0.1:1234#CFnat');
+			addresses = addresses.concat('www.speedtest.net:443#🌏WIFI-MCI-MTN-ipv4')
 			if (hostName.includes(".workers.dev")) {
-				addressesnotls = addressesnotls.concat(cfips.map(cidr => generateRandomIPFromCIDR(cidr) + '#CF随机节点'));
+				}
+			addresses = addresses.concat('188.114.97.3:443#🌏WIFI-MCI-MTN-ipv4');
+			if (hostName.includes(".workers.dev")) {
+				addressesnotls = addressesnotls.concat(cfips.map(cidr => generateRandomIPFromCIDR(cidr) + '#🌏WIFI-MCI-MTN'));
 			} else {
-				addresses = addresses.concat(cfips.map(cidr => generateRandomIPFromCIDR(cidr) + '#CF随机节点'));
+				addresses = addresses.concat(cfips.map(cidr => generateRandomIPFromCIDR(cidr) + '#🌏WIFI-MCI-MTN'));
 			}
 		}
 	}
